@@ -1,5 +1,5 @@
 Blocksi Enterprise Edition
-Version: 3.3.77 (Last updated: 2024-04-18)
+Version: 3.3.80 (Last updated: 2024-05-21)
 
 Source Code (manifest.json)
 
@@ -8,7 +8,7 @@ Source Code (manifest.json)
   "name": "Blocksi Enterprise Edition",
   "short_name": "__MSG_appShortName__",
   "description": "__MSG_appDescription__",
-  "version": "3.3.77",
+  "version": "3.3.80",
   "manifest_version": 2,
   "default_locale": "en",
   "icons": {
