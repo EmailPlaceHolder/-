@@ -1,0 +1,243 @@
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Start = Instance.new("TextButton")
+local UIGradient = Instance.new("UIGradient")
+local UICorner = Instance.new("UICorner")
+local Cole = Instance.new("TextLabel")
+local Ver2 = Instance.new("TextLabel")
+local UIGradient_2 = Instance.new("UIGradient")
+local Autofarm = Instance.new("TextLabel")
+local InfYield = Instance.new("TextLabel")
+local Exec = Instance.new("TextButton")
+local UIGradient_3 = Instance.new("UIGradient")
+local UICorner_2 = Instance.new("UICorner")
+local CLOSE = Instance.new("TextButton")
+local Exec2 = Instance.new("TextButton")
+local UIGradient_4 = Instance.new("UIGradient")
+local UICorner_3 = Instance.new("UICorner")
+local AddFPS = Instance.new("TextLabel")
+local Opened = false
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 2
+Frame.Position = UDim2.new(.5, 0, .5, 0)
+Frame.Size = UDim2.new(0, 200, 0, 100)
+Frame.SizeConstraint = Enum.SizeConstraint.RelativeYY
+Frame.Active = true
+Frame.Draggable = true
+Frame.Selectable = true
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0, 0, .05, 0)
+Title.Size = UDim2.new(0, 200, 0, 20)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "Autofarm + IY"
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextSize = 20
+Title.TextYAlignment = Enum.TextYAlignment.Top
+
+Start.Name = "Start"
+Start.Parent = Frame
+Start.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Start.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Start.BorderSizePixel = 0
+Start.Position = UDim2.new(0, 15, .25, 0)
+Start.Size = UDim2.new(0, 50, 0, 25)
+Start.Font = Enum.Font.SourceSans
+Start.Text = "Start"
+Start.TextColor3 = Color3.fromRGB(0, 0, 0)
+Start.TextSize = 20
+Start.MouseButton1Click:Connect(function()
+	warn("Starting Autofarm")
+	local todo1 = game:GetService("Workspace"):WaitForChild("RingAreas"):WaitForChild("Territories"):GetChildren()
+	for i, v in pairs(todo1) do
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(todo1[i].Position)
+		task.wait(8) -- wait time for each
+	end
+	game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Dimensions"):WaitForChild("RequestDimensionTeleport"):InvokeServer("Supermarket")
+	game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(111150, 1550, -1550)
+	task.wait(2) do
+		local todo2 = game:GetService("Workspace"):WaitForChild("Dimensions"):WaitForChild("Supermarket"):WaitForChild("Territories"):GetChildren()
+		for i, v in pairs(todo2) do
+			if v:IsA("Part") then
+				game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(v.Position)
+				task.wait(8) -- wait time for each
+			end
+		end
+		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Dimensions"):WaitForChild("RequestDimensionTeleport"):InvokeServer("Islands")
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(50, 250, -50)
+		while task.wait(2) do
+			local todo3 = game:GetService("Workspace"):GetDescendants()
+			for i, v in pairs(todo3) do
+				if v.Name == "GemModel" or v.Name == "BigGemModel" then
+					game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(v.Position)
+					task.wait(.2) -- wait time for each
+				end
+			end
+		end
+	end
+end)
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 255, 0))}
+UIGradient.Parent = Start
+
+UICorner.Parent = Start
+
+Cole.Name = "Cole"
+Cole.Parent = Frame
+Cole.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Cole.BackgroundTransparency = 1
+Cole.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Cole.BorderSizePixel = 0
+Cole.Size = UDim2.new(0, 50, 0, 25)
+Cole.Font = Enum.Font.SourceSans
+Cole.Text = "Cole"
+Cole.TextColor3 = Color3.fromRGB(0, 0, 0)
+Cole.TextSize = 15
+
+Ver2.Name = "Ver2"
+Ver2.Parent = Frame
+Ver2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Ver2.BackgroundTransparency = 1
+Ver2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Ver2.BorderSizePixel = 0
+Ver2.Position = UDim2.new(.75, 0, 0, 0)
+Ver2.Size = UDim2.new(0, 50, 0, 25)
+Ver2.Font = Enum.Font.SourceSans
+Ver2.Text = "Ver2"
+Ver2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Ver2.TextSize = 15
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(163, 162, 165))}
+UIGradient_2.Rotation = 90
+UIGradient_2.Parent = Frame
+
+Autofarm.Name = "Autofarm"
+Autofarm.Parent = Frame
+Autofarm.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Autofarm.BackgroundTransparency = 1
+Autofarm.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Autofarm.BorderSizePixel = 0
+Autofarm.Position = UDim2.new(0, 15, .5, 0)
+Autofarm.Size = UDim2.new(0, 50, 0, 20)
+Autofarm.Font = Enum.Font.SourceSansBold
+Autofarm.Text = "Autofarm"
+Autofarm.TextColor3 = Color3.fromRGB(0, 0, 0)
+Autofarm.TextSize = 15
+Autofarm.TextYAlignment = Enum.TextYAlignment.Top
+
+InfYield.Name = "Inf Yield"
+InfYield.Parent = Frame
+InfYield.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+InfYield.BackgroundTransparency = 1
+InfYield.BorderColor3 = Color3.fromRGB(0, 0, 0)
+InfYield.BorderSizePixel = 0
+InfYield.Position = UDim2.new(0, 75, .5, 0)
+InfYield.Size = UDim2.new(0, 50, 0, 20)
+InfYield.Font = Enum.Font.SourceSansBold
+InfYield.Text = "Inf Yield"
+InfYield.TextColor3 = Color3.fromRGB(0, 0, 0)
+InfYield.TextSize = 15
+InfYield.TextYAlignment = Enum.TextYAlignment.Top
+
+Exec.Name = "Exec"
+Exec.Parent = Frame
+Exec.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Exec.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Exec.BorderSizePixel = 0
+Exec.Position = UDim2.new(0, 75, .25, 0)
+Exec.Size = UDim2.new(0, 50, 0, 25)
+Exec.Font = Enum.Font.SourceSans
+Exec.Text = "Exec"
+Exec.TextColor3 = Color3.fromRGB(0, 0, 0)
+Exec.TextSize = 20
+Exec.MouseButton1Click:Connect(function()
+	warn("Executing Infinite Yield")
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 255, 0))}
+UIGradient_3.Parent = Exec
+
+UICorner_2.Parent = Exec
+
+CLOSE.Name = "CLOSE"
+CLOSE.Parent = Frame
+CLOSE.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+CLOSE.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CLOSE.BorderSizePixel = 2
+CLOSE.Position = UDim2.new(0, 25, .7, 0)
+CLOSE.Size = UDim2.new(0, 150, 0, 25)
+CLOSE.Font = Enum.Font.SourceSansBold
+CLOSE.Text = "CLOSE"
+CLOSE.TextColor3 = Color3.fromRGB(255, 255, 255)
+CLOSE.TextSize = 20
+CLOSE.MouseButton1Click:Connect(function()
+	warn("Closed GUI")
+	if Opened then
+		Frame:TweenPosition((UDim2.new(1, 0, 1, 0)), "InOut", "Quint")
+		Opened = false
+	else
+		Frame:TweenPosition((UDim2.new(1, 0, 1, 0)), "InOut", "Quart")
+		Opened = true
+	end
+	task.wait(2) do
+		ScreenGui:Destroy()
+	end
+end)
+
+Exec2.Name = "Exec2"
+Exec2.Parent = Frame
+Exec2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Exec2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Exec2.BorderSizePixel = 0
+Exec2.Position = UDim2.new(0, 135, .25, 0)
+Exec2.Size = UDim2.new(0, 50, 0, 25)
+Exec2.Font = Enum.Font.SourceSans
+Exec2.Text = "Exec"
+Exec2.TextColor3 = Color3.fromRGB(0, 0, 0)
+Exec2.TextSize = 20
+Exec2.MouseButton1Click:Connect(function()
+	warn("Boosting/Adding FPS")
+	while task.wait(8) do
+		local addfps = game:GetService("Workspace"):GetDescendants()
+		for i, v in pairs(addfps) do
+			if v:IsA("Beam") or v:IsA("ParticleEmitter") or v:IsA("PointLight") or v:IsA("SpecialMesh") then
+				v:Destroy()
+			end
+		end
+	end
+end)
+
+UIGradient_4.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 255, 0))}
+UIGradient_4.Parent = Exec2
+
+UICorner_3.Parent = Exec2
+
+AddFPS.Name = "AddFPS"
+AddFPS.Parent = Frame
+AddFPS.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AddFPS.BackgroundTransparency = 1
+AddFPS.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AddFPS.BorderSizePixel = 0
+AddFPS.Position = UDim2.new(0, 135, .5, 0)
+AddFPS.Size = UDim2.new(0, 50, 0, 20)
+AddFPS.Font = Enum.Font.SourceSansBold
+AddFPS.Text = "Add FPS"
+AddFPS.TextColor3 = Color3.fromRGB(0, 0, 0)
+AddFPS.TextSize = 15
+AddFPS.TextYAlignment = Enum.TextYAlignment.Top
+
+warn("Made by Cole")
